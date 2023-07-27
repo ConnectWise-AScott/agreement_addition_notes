@@ -48,7 +48,9 @@ def truncate_addition_notes(agreement):
     agr.get_additions()
 
     for addition in agr.additions:
-        newtext, seperator, stripped = addition.description.partition("\n,")
+        newtext, seperator, stripped = addition.description.partition(
+            "\n,Unassigned Licenses:"
+        )
 
         addition_url = f"https://{manage_url}/v4_6_release/apis/3.0/finance/agreements/{str(agr.id)}/additions/{str(addition.id)}"
 
